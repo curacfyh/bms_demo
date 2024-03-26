@@ -22,6 +22,7 @@
         "noFallthroughCasesInSwitch": true,
 
         "types": ["element-plus/global"],
+        "esModuleInterop": true,
 
         "baseUrl": "./", // 解析非相对模块的基地址，默认是当前目录
         "paths": {

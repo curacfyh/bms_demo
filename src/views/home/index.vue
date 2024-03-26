@@ -1,5 +1,5 @@
 <template>
-    <div>home view</div>
+    <div>登录后的首页</div>
 </template>
 
 <script setup lang="ts"></script>

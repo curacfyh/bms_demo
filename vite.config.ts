@@ -1,11 +1,12 @@
-import { defineConfig } from 'vite'
+import { defineConfig, loadEnv } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 import path from 'path'
 import { viteMockServe } from 'vite-plugin-mock'
 
 // https://vitejs.dev/config/
-export default defineConfig(() => {
+export default defineConfig(({ mode }) => {
+    let env = loadEnv(mode, process.cwd())
     return {
         plugins: [
             vue(),
@@ -31,6 +32,16 @@ export default defineConfig(() => {
                 scss: {
                     javascriptEnabled: true,
                     additionalData: '@import "./src/styles/variable.scss";',
+                },
+            },
+        },
+        // 解决跨域问题
+        server: {
+            proxy: {
+                [env.VITE_APP_BASE_API]: {
+                    target: env.VITE_SERVER, // 代理地址
+                    changeOrigin: true, // 需要虚拟托管站点，以便能够跨域
+                    rewrite: (path) => path.replace(/^\/api/, ''), // 重写API请求，去掉/api前缀
                 },
             },
         },

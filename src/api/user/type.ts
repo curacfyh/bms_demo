@@ -1,34 +1,27 @@
-export interface LoginForm {
+export interface LoginFormData {
     username: string
     password: string
 }
 
-interface DataType {
-    token: string
-}
-
-export interface LoginResponseData {
+//定义全部接口返回数据都拥有ts类型
+export interface ResponseData {
     code: number
-    data: DataType
+    message: string
+    ok: boolean
 }
 
-interface UserInfo {
-    userId: number
-    avatar: string
-    username: string
-    password: string
-    desc: string
-    roles: string[]
-    buttons: string[]
-    routes: string[]
-    token: string
+//定义登录接口返回数据类型
+export interface LoginResponseData extends ResponseData {
+    data: string
 }
 
-interface User {
-    checkUser: UserInfo
-}
-
-export interface UserReponseData {
-    code: number
-    data: User
+//定义获取用户信息返回数据类型
+export interface UserInfoResponseData extends ResponseData {
+    data: {
+        routes: string[]
+        buttons: string[]
+        roles: string[]
+        name: string
+        avatar: string
+    }
 }
