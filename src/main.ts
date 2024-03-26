@@ -4,6 +4,7 @@ import 'element-plus/dist/index.css'
 // import zhCn from 'element-plus/es/locale/lang/zh-cn'
 //@ts-expect-error: Element Plus locale file import issue
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+import 'element-plus/theme-chalk/dark/css-vars.css'
 import App from './App.vue'
 import 'virtual:svg-icons-register'
 import globeComponents from '@/components/index'

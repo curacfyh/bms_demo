@@ -241,7 +241,7 @@ const cancel = () => {
     drawer.value = false
 }
 //校验用户名字回调函数
-const validatorUsername = (rule: any, value: any, callBack: any) => {
+const validatorUsername = (_rule: any, value: any, callBack: any) => {
     //用户名字|昵称,长度至少五位
     if (value.trim().length >= 5) {
         callBack()
@@ -250,7 +250,7 @@ const validatorUsername = (rule: any, value: any, callBack: any) => {
     }
 }
 //校验用户名字回调函数
-const validatorname = (rule: any, value: any, callBack: any) => {
+const validatorname = (_rule: any, value: any, callBack: any) => {
     //用户名字|昵称,长度至少五位
     if (value.trim().length >= 5) {
         callBack()
@@ -258,7 +258,7 @@ const validatorname = (rule: any, value: any, callBack: any) => {
         callBack(new Error('用户昵称至少五位'))
     }
 }
-const validatorPassword = (rule: any, value: any, callBack: any) => {
+const validatorPassword = (_rule: any, value: any, callBack: any) => {
     //用户名字|昵称,长度至少五位
     if (value.trim().length >= 6) {
         callBack()
@@ -366,7 +366,7 @@ const search = () => {
 }
 //重置按钮
 const reset = () => {
-    settingStore.refsh = !settingStore.refsh
+    settingStore.refresh = !settingStore.refresh
 }
 </script>
 

@@ -37,7 +37,7 @@ const useUserStore = defineStore('User', {
                 return Promise.reject(new Error(userInfoResp.message))
             }
         },
-        async logout() {
+        async userLogout() {
             const logoutResp = await reqLogout()
             if (logoutResp.code === 200) {
                 this.token = ''
